@@ -1,0 +1,23 @@
+{
+  "name": "transcode_video",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "run-local-lambda --file index.js --event tests/event.json",
+    "deploy": "aws lambda update-function-code --function-name arn:aws:lambda:ap-northeast-1:654154311486:function:hirosio-mail --zip-file fileb://Lambda-Deployment.zip",
+    "predeploy": "zip -r Lambda-Deployment.zip * -x *.json *.zip"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.294.0",
+    "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
+    "fs": "0.0.1-security",
+    "sparkpost": "^2.1.2"
+  },
+  "devDependencies": {
+    "run-local-lambda": "^1.1.1"
+  }
+}
